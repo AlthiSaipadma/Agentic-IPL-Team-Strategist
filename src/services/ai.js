@@ -35,8 +35,12 @@ const getMockTeamData = (params) => {
 };
 
 export const generateTeamLogic = async (params) => {
+  const API_URL = import.meta.env.MODE === 'production' 
+    ? "/api" 
+    : "http://localhost:8000";
+
   try {
-    const response = await fetch("http://localhost:8000/generate-team", {
+    const response = await fetch(`${API_URL}/generate-team`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

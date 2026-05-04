@@ -23,8 +23,12 @@ const Results = () => {
   };
 
   const handleSimulate = async () => {
+    const API_URL = import.meta.env.MODE === 'production' 
+      ? "/api" 
+      : "http://localhost:8000";
+
     try {
-      const response = await fetch("http://localhost:8000/simulate", {
+      const response = await fetch(`${API_URL}/simulate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ teamData, params })

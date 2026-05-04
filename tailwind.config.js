@@ -73,13 +73,13 @@ export default {
         "container-max": "1440px"
       },
       fontFamily: {
-        "headline-lg": ["Outfit", "sans-serif"],
-        "stats-num": ["Outfit", "sans-serif"],
-        "display": ["Outfit", "sans-serif"],
-        "body-lg": ["Inter", "sans-serif"],
-        "label-bold": ["Inter", "sans-serif"],
-        "body-md": ["Inter", "sans-serif"],
-        "headline-md": ["Outfit", "sans-serif"]
+        "headline-lg": ["Times New Roman", "serif"],
+        "stats-num": ["Times New Roman", "serif"],
+        "display": ["Times New Roman", "serif"],
+        "body-lg": ["Times New Roman", "serif"],
+        "label-bold": ["Times New Roman", "serif"],
+        "body-md": ["Times New Roman", "serif"],
+        "headline-md": ["Times New Roman", "serif"]
       },
       fontSize: {
         "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
