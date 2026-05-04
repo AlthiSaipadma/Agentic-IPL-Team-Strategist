@@ -12,9 +12,50 @@ const GenerateTeam = () => {
     toss: 'Bat First',
     opponent: 'Chennai Super Kings'
   });
+  const [errors, setErrors] = useState({});
+
+  const validateForm = (data) => {
+    const newErrors = {};
+    
+    if (!data.venue || data.venue.trim() === '') {
+      newErrors.venue = 'Please select a venue';
+    }
+    
+    if (!data.pitch || data.pitch.trim() === '') {
+      newErrors.pitch = 'Please select a pitch type';
+    }
+    
+    if (!data.weather || data.weather.trim() === '') {
+      newErrors.weather = 'Please select weather conditions';
+    }
+    
+    if (!data.toss || data.toss.trim() === '') {
+      newErrors.toss = 'Please select toss result';
+    }
+    
+    if (!data.opponent || data.opponent.trim() === '') {
+      newErrors.opponent = 'Please select an opponent';
+    }
+    
+    return newErrors;
+  };
 
   const handleGenerate = async (e) => {
     e.preventDefault();
+    
+    // Validate form
+    const validationErrors = validateForm(formData);
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      // Show error message
+      const firstError = Object.values(validationErrors)[0];
+      alert(`Validation Error: ${firstError}`);
+      return;
+    }
+    
+    // Clear errors if validation passes
+    setErrors({});
+    
     setLoading(true);
     try {
       const generatedData = await generateTeamLogic(formData);
@@ -69,7 +110,11 @@ const GenerateTeam = () => {
                   <select 
                     value={formData.venue}
                     onChange={(e) => setFormData({...formData, venue: e.target.value})}
-                    className="w-full pl-lg pr-md py-sm bg-white/20 border border-indigo-200 text-on-background rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition-all font-bold"
+                    className={`w-full pl-lg pr-md py-sm bg-white/20 border text-on-background rounded-lg focus:ring-2 appearance-none transition-all font-bold ${
+                      errors.venue 
+                        ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+                        : 'border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500'
+                    }`}
                   >
                     <option className="bg-white">Wankhede Stadium, Mumbai</option>
                     <option className="bg-white">M. Chinnaswamy Stadium, Bengaluru</option>
@@ -89,7 +134,11 @@ const GenerateTeam = () => {
                   <select 
                     value={formData.pitch}
                     onChange={(e) => setFormData({...formData, pitch: e.target.value})}
-                    className="w-full pl-lg pr-md py-sm bg-white/20 border border-indigo-200 text-on-background rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition-all font-bold"
+                    className={`w-full pl-lg pr-md py-sm bg-white/20 border text-on-background rounded-lg focus:ring-2 appearance-none transition-all font-bold ${
+                      errors.pitch 
+                        ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+                        : 'border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500'
+                    }`}
                   >
                     <option className="bg-white">Batting Paradise</option>
                     <option className="bg-white">Spin-friendly</option>
@@ -108,7 +157,11 @@ const GenerateTeam = () => {
                   <select 
                     value={formData.weather}
                     onChange={(e) => setFormData({...formData, weather: e.target.value})}
-                    className="w-full pl-lg pr-md py-sm bg-white/20 border border-indigo-200 text-on-background rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition-all font-bold"
+                    className={`w-full pl-lg pr-md py-sm bg-white/20 border text-on-background rounded-lg focus:ring-2 appearance-none transition-all font-bold ${
+                      errors.weather 
+                        ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+                        : 'border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500'
+                    }`}
                   >
                     <option className="bg-white">Sunny & Clear</option>
                     <option className="bg-white">High Humidity</option>
@@ -127,7 +180,11 @@ const GenerateTeam = () => {
                   <select 
                     value={formData.toss}
                     onChange={(e) => setFormData({...formData, toss: e.target.value})}
-                    className="w-full pl-lg pr-md py-sm bg-white/20 border border-indigo-200 text-on-background rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition-all font-bold"
+                    className={`w-full pl-lg pr-md py-sm bg-white/20 border text-on-background rounded-lg focus:ring-2 appearance-none transition-all font-bold ${
+                      errors.toss 
+                        ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+                        : 'border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500'
+                    }`}
                   >
                     <option className="bg-white">Bat First</option>
                     <option className="bg-white">Bowl First</option>
@@ -144,7 +201,11 @@ const GenerateTeam = () => {
                   <select 
                     value={formData.opponent}
                     onChange={(e) => setFormData({...formData, opponent: e.target.value})}
-                    className="w-full pl-lg pr-md py-sm bg-white/20 border border-indigo-200 text-on-background rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 appearance-none transition-all font-bold"
+                    className={`w-full pl-lg pr-md py-sm bg-white/20 border text-on-background rounded-lg focus:ring-2 appearance-none transition-all font-bold ${
+                      errors.opponent 
+                        ? 'border-red-500 focus:ring-red-500 focus:border-red-500' 
+                        : 'border-indigo-200 focus:ring-indigo-500 focus:border-indigo-500'
+                    }`}
                   >
                     <option className="bg-white">Chennai Super Kings</option>
                     <option className="bg-white">Mumbai Indians</option>

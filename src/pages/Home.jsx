@@ -10,15 +10,15 @@ const Home = () => {
       <section className="relative overflow-hidden py-xl min-h-[85vh] flex items-center">
         <div className="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-xl items-center w-full">
           {/* Left Side Content */}
-          <div className="z-10 lg:col-span-7 space-y-md">
-            <span className="inline-block bg-[#FFD700] text-black px-sm py-xs rounded-full font-label-bold text-label-bold shadow-lg border border-black/20">
-              NEXT-GEN STRATEGY
+          <div className="z-10 lg:col-span-7 space-y-lg">
+            <span className="inline-block bg-[#FFD700] text-black px-sm py-xs rounded-full font-label-bold text-label-bold shadow-xl border border-black/20 tracking-wider uppercase text-[12px]">
+              NEXT-GEN STRATEGY ENGINE
             </span>
-            <h1 className="hero-title leading-tight">
+            <h1 className="hero-title leading-[1.1] tracking-tight">
               Build Your Smart <br className="hidden md:block" />
               IPL Playing XI
             </h1>
-            <p className="hero-description text-xl md:text-2xl">
+            <p className="hero-description text-xl md:text-2xl font-medium leading-relaxed opacity-95">
               AI-powered, context-aware team selection. Harness data from thousands of matches to predict player performance, ground dynamics, and opposition weaknesses.
             </p>
             <div className="flex flex-wrap gap-md pt-sm">
