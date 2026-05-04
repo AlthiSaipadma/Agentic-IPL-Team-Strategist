@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   const isActive = (path) => location.pathname === path;
 
   const getNavLinkClass = (path) => {
-    const base = "font-['Times_New_Roman'] font-medium text-sm tracking-tight transition-all active:scale-95";
+    const base = "font-['Inter'] font-medium text-sm tracking-tight transition-all active:scale-95";
     const active = "text-white border-b-2 border-amber-500 pb-1";
     const inactive = "text-white/80 hover:text-white";
     return `${base} ${isActive(path) ? active : inactive}`;
@@ -19,7 +19,7 @@ const Layout = ({ children }) => {
       {/* TopAppBar */}
       <header className="sticky top-0 z-50 bg-white/5 backdrop-blur-md border-b border-white/10 shadow-sm">
         <div className="flex justify-between items-center max-w-7xl mx-auto px-6 h-16">
-          <div className="font-['Times_New_Roman'] font-black text-3xl italic text-white tracking-tighter whitespace-nowrap drop-shadow-md">
+          <div className="font-['Outfit'] font-black text-3xl italic text-white tracking-tighter whitespace-nowrap drop-shadow-md">
             IPL Strategist AI
           </div>
           {/* Mobile Menu Button */}
@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link 
-              className={`font-['Times_New_Roman'] font-medium text-sm tracking-tight transition-all active:scale-95 ${isActive('/') ? 'text-white border-b-2 border-amber-500 pb-1' : 'text-white/80 hover:text-white'}`} 
+              className={`font-['Inter'] font-medium text-sm tracking-tight transition-all active:scale-95 ${isActive('/') ? 'text-white border-b-2 border-amber-500 pb-1' : 'text-white/80 hover:text-white'}`} 
               to="/"
             >
               Home
@@ -114,18 +114,18 @@ const Layout = ({ children }) => {
       <footer className="glass-card rounded-none border-b-0 border-x-0 py-12 px-6 mt-xl">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="flex flex-col items-center md:items-start space-y-2">
-            <div className="font-['Times_New_Roman'] font-bold text-lg text-indigo-900">
+            <div className="font-['Outfit'] font-bold text-lg text-indigo-900">
               IPL Strategist AI
             </div>
-            <div className="font-['Times_New_Roman'] text-xs font-light text-indigo-700">
+            <div className="font-['Inter'] text-xs font-light text-indigo-700">
               © 2024 IPL Strategist AI. Precision in every play.
             </div>
           </div>
           <div className="flex flex-wrap justify-center gap-8">
-            <a className="font-['Times_New_Roman'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">Privacy Policy</a>
-            <a className="font-['Times_New_Roman'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">Terms of Service</a>
-            <a className="font-['Times_New_Roman'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">Support</a>
-            <a className="font-['Times_New_Roman'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">API Docs</a>
+            <a className="font-['Inter'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">Privacy Policy</a>
+            <a className="font-['Inter'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">Terms of Service</a>
+            <a className="font-['Inter'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">Support</a>
+            <a className="font-['Inter'] text-xs font-light text-indigo-700 hover:text-indigo-900 transition-colors" href="#">API Docs</a>
           </div>
           <div className="flex space-x-4">
             <span className="material-symbols-outlined text-indigo-700 cursor-pointer hover:text-indigo-900 transition-colors">share</span>
